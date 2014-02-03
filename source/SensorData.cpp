@@ -108,7 +108,6 @@ namespace karto
     : LocalizedObject(rSensorIdentifier)
     , m_IsDirty(true)
   {
-    m_pIsScanMatched = new Parameter<kt_bool>(GetParameterSet(), "IsScanMatched", "Is Scan-Matched", "IsScanMatched", false);
   }
   
   LocalizedLaserScan::~LocalizedLaserScan()

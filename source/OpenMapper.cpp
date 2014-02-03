@@ -88,7 +88,7 @@ namespace karto
       
       // if object is scan and it was scan-matched, add it to scan buffer
       LocalizedLaserScan* pScan = dynamic_cast<LocalizedLaserScan*>(pObject);
-      if (pScan != NULL && pScan->IsScanMatched() == true)
+      if (pScan != NULL)
       {
         m_Scans.Add(pScan);
       }      
@@ -1404,7 +1404,7 @@ namespace karto
       LocalizedLaserScan* pScan = dynamic_cast<LocalizedLaserScan*>(pObject);
       
       // object is not a scan or wasn't scan matched, ignore
-      if (pScan == NULL || pScan->IsScanMatched() == false)
+      if (pScan == NULL)
       {
         return false;
       }
@@ -1470,7 +1470,7 @@ namespace karto
     covariance(2, 2) = MAX_VARIANCE;
     
     LocalizedLaserScan* pScan = dynamic_cast<LocalizedLaserScan*>(pObject);
-    if (pScan != NULL && pScan->IsScanMatched() == true)
+    if (pScan != NULL)
     {      
       AddEdges(pScan, covariance);
     }
@@ -1686,7 +1686,7 @@ namespace karto
     if (isNewEdge == true)
     {
       LocalizedLaserScan* pScan = dynamic_cast<LocalizedLaserScan*>(pFromObject);
-      if (pScan != NULL && pScan->IsScanMatched() == true)
+      if (pScan != NULL)
       {
         pEdge->SetLabel(new LinkInfo(pScan->GetSensorPose(), rMean, rCovariance));
       }
@@ -1995,7 +1995,7 @@ namespace karto
     {
       LocalizedObject* pObject = *iter;
       LocalizedLaserScan* pScan = dynamic_cast<LocalizedLaserScan*>(pObject);
-      if (pScan != NULL && pScan->IsScanMatched() == true)
+      if (pScan != NULL)
       {
         nearLinkedScans.Add(pScan);
       }
@@ -2015,7 +2015,7 @@ namespace karto
     {
       LocalizedObject* pObject = (*iter)->GetVertexObject();
       LocalizedLaserScan* pCandidateScan = dynamic_cast<LocalizedLaserScan*>(pObject);
-      if (pCandidateScan == NULL || pCandidateScan->IsScanMatched() == false)
+      if (pCandidateScan == NULL)
       {
         continue;
       }
@@ -2135,7 +2135,7 @@ namespace karto
         LocalizedObject* pObject = m_pOpenMapper->m_pMapperSensorManager->GetLocalizedObject(iter->GetFirst());
         LocalizedLaserScan* pScan = dynamic_cast<LocalizedLaserScan*>(pObject);
         
-        if (pScan != NULL && pScan->IsScanMatched() == true)
+        if (pScan != NULL)
         {
           pScan->SetSensorPose(iter->GetSecond());
         }
@@ -2332,11 +2332,6 @@ namespace karto
       // scan is outside minimum boundary or if heading is larger then minimum heading)
       if (pScan == NULL || (!HasMovedEnough(pScan, pLastScan) && !pScan->IsGpsReadingValid()))
       {
-        if (pScan != NULL)
-        {
-          pScan->SetScanMatched(false);
-        }
-        
         if (pLocalizedObject->HasCustomItem() == true)
         {
           m_pMapperSensorManager->AddLocalizedObject(pLocalizedObject);

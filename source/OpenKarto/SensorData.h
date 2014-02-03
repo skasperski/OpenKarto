@@ -698,24 +698,6 @@ namespace karto
     {
       return m_RangeReadings.Size();
     }
-        
-    /**
-     * Has this scan been scan-matched?
-     * @return true if scan-matched, false otherwise
-     */
-    inline kt_bool IsScanMatched()
-    {
-      return m_pIsScanMatched->GetValue();
-    }
-
-    /**
-     * Sets the scan-matched flag for this scan
-     * @param value whether this scan has been scan-matched
-     */
-    inline void SetScanMatched(kt_bool value)
-    {
-      m_pIsScanMatched->SetValue(value);
-    }
 
   protected:
     /**
@@ -789,11 +771,7 @@ namespace karto
      * Internal flag used to update point readings, barycenter and bounding box
      */
     kt_bool m_IsDirty;
-            
-    /**
-     * Whether the scan has been scan-matched in the Mapper (or some other module)
-     */
-    Parameter<kt_bool>* m_pIsScanMatched;
+    
   }; // LocalizedLaserScan
   
   /**
