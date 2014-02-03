@@ -67,7 +67,7 @@ SET(KARTO_INCLUDE_FILES
   source/OpenKarto/Parameter.h
   source/OpenKarto/SensorData.h
   source/OpenKarto/StringHelper.h
-  source/OpenKarto/Dataset.h
+# source/OpenKarto/Dataset.h
   source/OpenKarto/Grid.h
   source/OpenKarto/Macros.h
   source/OpenKarto/MetaClassManager.h
