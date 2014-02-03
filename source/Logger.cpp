@@ -141,7 +141,8 @@ namespace karto
         Poco::Logger::create("FileLogger", pFCFile, Poco::Message::PRIO_INFORMATION);
       }
 #endif // _DEBUG
-
+#else
+     }
 #endif // USE_POCO
     }
 
