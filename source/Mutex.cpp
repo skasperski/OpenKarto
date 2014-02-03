@@ -17,6 +17,8 @@
 
 #ifdef USE_TBB
 #include <tbb/mutex.h>
+#else
+#include <iostream>
 #endif
 
 #include <OpenKarto/Mutex.h>
