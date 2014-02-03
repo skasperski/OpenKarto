@@ -24,7 +24,6 @@
 
 #include <OpenKarto/AbstractGpsEstimationManager.h>
 #include <OpenKarto/CoordinateConverter.h>
-#include <OpenKarto/Dataset.h>
 #include <OpenKarto/Deprecated.h>
 #include <OpenKarto/Event.h>
 #include <OpenKarto/Exception.h>

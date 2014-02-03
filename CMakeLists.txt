@@ -5,7 +5,6 @@ include_directories(source)
 
 SET(KARTO_SOURCE_FILES
   source/Any.cpp
-# source/Dataset.cpp  # deprecated
   source/Event.cpp
   source/Exception.cpp
   source/Geometry.cpp
@@ -67,7 +66,6 @@ SET(KARTO_INCLUDE_FILES
   source/OpenKarto/Parameter.h
   source/OpenKarto/SensorData.h
   source/OpenKarto/StringHelper.h
-# source/OpenKarto/Dataset.h
   source/OpenKarto/Grid.h
   source/OpenKarto/Macros.h
   source/OpenKarto/MetaClassManager.h
