@@ -1,6 +1,9 @@
 cmake_minimum_required (VERSION 2.6)
 project (OpenKarto)
 
+set(BUILD_TYPE Release)
+add_definitions("-fPIC")
+
 include_directories(source)
 
 SET(KARTO_SOURCE_FILES
@@ -88,6 +91,7 @@ SET(KARTO_INCLUDE_FILES
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DUSE_TBB" )
 
 add_library(${PROJECT_NAME} ${KARTO_SOURCE_FILES})
+target_link_libraries(${PROJECT_NAME} tbb)
 
-install(FILES ${KARTO_INCLUDE_FILES} DESTINATION source/OpenKarto/${PROJECT_NAME})
+install(FILES ${KARTO_INCLUDE_FILES} DESTINATION include/${PROJECT_NAME})
 install(TARGETS ${PROJECT_NAME} ARCHIVE DESTINATION lib)
