@@ -1517,7 +1517,7 @@ namespace karto
         Pose2 bestPose;
         Matrix3 covariance;
         kt_double response = m_pOpenMapper->m_pSequentialScanMatcher->MatchScan(pScan, pSensorManager->GetScans(rCandidateSensorName), bestPose, covariance);
-        LinkObjects(pScan, pSensorManager->GetScans(rCandidateSensorName)[0], bestPose, covariance);
+        LinkObjects(pSensorManager->GetScans(rCandidateSensorName)[0], pScan, bestPose, covariance);
         
         // only add to means and covariances if response was high "enough"
         if (response > m_pOpenMapper->m_pLinkMatchMinimumResponseFine->GetValue())
